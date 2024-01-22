@@ -9,17 +9,10 @@
 		<img alt="The project logo" src={logo} />
 		<!-- / -->
 		<div class="flex justify-center space-x-2">
-			<a
-				class="btn variant-filled"
-				href="https://www.sat.gob.mx/"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Portal del SATR
-			</a>
+
 		</div>
 		<div class="space-y-2">
-			<p>...</p>
+			<p></p>
 		</div>
 	</div>
 </div>
