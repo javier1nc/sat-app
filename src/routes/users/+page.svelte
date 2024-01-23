@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import { CodeBlock } from '@skeletonlabs/skeleton';
+import { roles } from './../stores.js'
 
 	type users = {
         name: string;
@@ -21,11 +22,10 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 		["Beto", "beto@gmail.com", "beto23","usuario"],
 		["Carla", "carla@mail.com", "carla23","invitado"]
     ]
-	let roles = ["administrador","usuario","invitado"]
 	let newRow = [...columns];
 
 
-	$: console.log('Updated options:', roles)
+	$: console.log('Updated options:', $roles)
 </script>
 
 <!-- Responsive Container -->
@@ -47,7 +47,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 				{/each}
 				<td class="">
 					<select bind:value={row[3]} class="selctor">
-						{#each roles as value}<option {value}>{value}</option>{/each}
+						{#each $roles as value}<option {value}>{value}</option>{/each}
 					</select>
 				<td/>
 
@@ -66,7 +66,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 			{/each}
 			<td>
 				<select bind:value={newRow[3]} class="selctor">
-					{#each roles as value}<option {value}>{value}</option>{/each}
+					{#each $roles as value}<option {value}>{value}</option>{/each}
 				</select>
 			</td>
 
@@ -81,7 +81,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 	<br>
 	<CodeBlock language="typescript" code={JSON.stringify(data, null, 2)}></CodeBlock>
 	<br>
-	<CodeBlock language="typescript" code={JSON.stringify(roles, null, 2)}></CodeBlock>
+	<CodeBlock language="typescript" code={JSON.stringify($roles, null, 2)}></CodeBlock>
 	<br>
 
 <style>
