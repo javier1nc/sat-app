@@ -1,32 +1,28 @@
 <script lang="ts">
 
 import { CodeBlock } from '@skeletonlabs/skeleton';
-import { roles } from './../stores.js'
+import { roles, data } from './../stores.js'
 
 	type roles = {
 		usuario: string;
 		role: string;
 	};
 	function addRow() {
-		data = [...data, [...newRow]]
+		$data = [...$data, [...newRow]]
 		newRow = columns
 	}
 	function deleteRow(rowToBeDeleted) {
-		data = data.filter(row => row != rowToBeDeleted)
+		$data = $data.filter(row => row != rowToBeDeleted)
 	}
 	let columns = ["Role", "Permisos"]
-	let data: roles = [
-		["administrador", "Nivel1"],
-		["usuario", "Nivel2"],
-		["invitado", "Nivel3"]
-	]
+
 	let newRow = [...columns];
 
 
 
-	$: if(data){
+	$: if($data){
 		$roles = []
-		for (let tuple of data) {
+		for (let tuple of $data) {
 			$roles.push(tuple[0]);
 		}
 	}
@@ -44,7 +40,7 @@ import { roles } from './../stores.js'
 		</tr>
 	</thead>
 	<tbody>
-		{#each data as row}
+		{#each $data as row}
 			<tr>
 				{#each row as cell}
 				<td contenteditable="true" bind:innerHTML={cell} />
@@ -67,10 +63,10 @@ import { roles } from './../stores.js'
 	</table>
 </div>
 	<br/>
-	<CodeBlock language="typescript" code={JSON.stringify(data, null, 2)}></CodeBlock>
+	<CodeBlock language="typescript" code={JSON.stringify($data, null, 2)}></CodeBlock>
 	<br/>
 	<br/>
 	<CodeBlock language="typescript" code={JSON.stringify($roles, null, 2)}></CodeBlock>
-	<p>{$roles}</p>
+	<p>{$data}</p>
 <style>
 </style>
