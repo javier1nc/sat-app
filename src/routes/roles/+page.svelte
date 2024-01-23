@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import { CodeBlock } from '@skeletonlabs/skeleton';
+import { message } from './../stores.js'
 
 	type roles = {
 		usuario: string;
@@ -71,7 +72,6 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 	<br/>
 	<br/>
 	<CodeBlock language="typescript" code={JSON.stringify(roles, null, 2)}></CodeBlock>
-
-
+	<p>{$message}</p>
 <style>
 </style>
