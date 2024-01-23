@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import { CodeBlock } from '@skeletonlabs/skeleton';
-import { message } from './../stores.js'
+import { roles } from './../stores.js'
 
 	type roles = {
 		usuario: string;
@@ -23,12 +23,11 @@ import { message } from './../stores.js'
 	let newRow = [...columns];
 
 
-	let roles = []
 
 	$: if(data){
-		roles = []
+		$roles = []
 		for (let tuple of data) {
-			roles.push(tuple[0]);
+			$roles.push(tuple[0]);
 		}
 	}
 
@@ -71,7 +70,7 @@ import { message } from './../stores.js'
 	<CodeBlock language="typescript" code={JSON.stringify(data, null, 2)}></CodeBlock>
 	<br/>
 	<br/>
-	<CodeBlock language="typescript" code={JSON.stringify(roles, null, 2)}></CodeBlock>
-	<p>{$message}</p>
+	<CodeBlock language="typescript" code={JSON.stringify($roles, null, 2)}></CodeBlock>
+	<p>{$roles}</p>
 <style>
 </style>
