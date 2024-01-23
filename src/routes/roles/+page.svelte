@@ -20,6 +20,17 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 		["invitado", "Nivel3"]
 	]
 	let newRow = [...columns];
+
+
+	let roles = []
+
+	$: if(data){
+		roles = []
+		for (let tuple of data) {
+			roles.push(tuple[0]);
+		}
+	}
+
 </script>
 
 <!-- Responsive Container -->
@@ -55,9 +66,12 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	</table>
 </div>
+	<br/>
+	<CodeBlock language="typescript" code={JSON.stringify(data, null, 2)}></CodeBlock>
+	<br/>
+	<br/>
+	<CodeBlock language="typescript" code={JSON.stringify(roles, null, 2)}></CodeBlock>
 
-	<br>
-	<CodeBlock language="javascript" code={JSON.stringify(data, null, 2)}></CodeBlock>
 
 <style>
 </style>

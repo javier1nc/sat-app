@@ -21,6 +21,9 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	import { SlideToggle } from '@skeletonlabs/skeleton';
+	let value: boolean = false;
 </script>
 
 <!-- App Shell -->
@@ -34,6 +37,7 @@
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
+				<!-- <SlideToggle name="slide" bind:checked={value} /> -->
 				<a
 					class="btn btn-sm variant-ghost-surface"
 					href="/users"

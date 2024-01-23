@@ -6,7 +6,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
         name: string;
         email: string;
         user: string;
-
+		role: string;
     };
 	function addRow() {
         data = [...data, [...newRow]]
@@ -21,13 +21,9 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 		["Beto", "beto@gmail.com", "beto23","usuario"],
 		["Carla", "carla@mail.com", "carla23","invitado"]
     ]
+	let roles = ["administrador","usuario","invitado"]
 	let newRow = [...columns];
 
-	let roles = [
-		'administrador',
-		'usuario',
-		'invitado'
-	]
 
 	$: console.log('Updated options:', roles)
 </script>
@@ -46,7 +42,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 		{#each data as row}
 			<tr class="">
 
-				{#each row.slice(0,-1) as cell}
+				{#each row as cell}
 				<td contenteditable="true" bind:innerHTML={cell} class=""/>
 				{/each}
 				<td class="">
@@ -65,7 +61,7 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	<tfoot>
 		<tr style="color: grey" >
-			{#each newRow.slice(0,-1) as column}
+			{#each newRow as column}
 				<td contenteditable="true" bind:innerHTML={column} />
 			{/each}
 			<td>
@@ -83,7 +79,10 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 </div>
 
 	<br>
-	<CodeBlock language="javascript" code={JSON.stringify(data, null, 2)}></CodeBlock>
+	<CodeBlock language="typescript" code={JSON.stringify(data, null, 2)}></CodeBlock>
+	<br>
+	<CodeBlock language="typescript" code={JSON.stringify(roles, null, 2)}></CodeBlock>
+	<br>
 
 <style>
 	.selctor {
