@@ -13,11 +13,11 @@ import { CodeBlock } from '@skeletonlabs/skeleton';
 	function deleteRow(rowToBeDeleted) {
 		data = data.filter(row => row != rowToBeDeleted)
 	}
-	let columns = ["Usuario", "Role"]
+	let columns = ["Role", "Permisos"]
 	let data: roles = [
-		["abel23", "Administrador"],
-		["beto23", "Usuario N1"],
-		["carla23", "Usuario N2"]
+		["administrador", "Nivel1"],
+		["usuario", "Nivel2"],
+		["invitado", "Nivel3"]
 	]
 	let newRow = [...columns];
 </script>
