@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export let roles = writable();
+export let roles = writable(["administrador", "usuario","invitado"]);
 
 export let data = writable(
     [
